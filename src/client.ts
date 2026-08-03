@@ -314,7 +314,10 @@ export class Client extends EventEmitter {
     let headers: any = {
       'Content-Type': 'text/xml; charset=utf-8',
     };
+    let headerXMLKeys='';
     let xmlnsSoap = 'xmlns:' + envelopeKey + '="' + envelopeSoapUrl + '"';
+
+    const { returnXmlOnly } = args;
 
     const finish = (obj, body, response) => {
       let result;
@@ -454,11 +457,7 @@ export class Client extends EventEmitter {
       this.wsdl.xmlnsInEnvelope +
       '>' +
       (decodedHeaders || (this.security && (this.security.toXML() || this.security.postProcess))
-        ? '<' +
-          envelopeKey +
-          ':Header' +
-          (this.wsdl.xmlnsInHeader ? ' ' + this.wsdl.xmlnsInHeader : '') +
-          '>' +
+        ? "<" + envelopeKey + ":Header xmlns:wsa='http://www.w3.org/2005/08/addressing'>" +
           (decodedHeaders ? decodedHeaders : '') +
           (this.security && !this.security.postProcess ? this.security.toXML() : '') +
           '</' +

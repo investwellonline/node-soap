@@ -143,6 +143,7 @@ export interface IOptions extends IWsdlBaseOptions {
   parseReponseAttachments?: boolean;
   /** handle endpoint response.data enconding when using parseReponseAttachments */
   encoding?: BufferEncoding;
+  headersKeys?: any;
 }
 
 export interface IOneWayOptions {
