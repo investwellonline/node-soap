@@ -452,6 +452,7 @@ export class Client extends EventEmitter {
       ':Envelope ' +
       xmlnsSoap +
       ' ' +
+      headerXMLKeys +
       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
       encoding +
       this.wsdl.xmlnsInEnvelope +
