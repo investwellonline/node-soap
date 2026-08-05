@@ -584,12 +584,6 @@ export class Client extends EventEmitter {
       return;
     }
 
-    if(location == 'https://intools.morningstar.com/ondemandtpimportservice/MorningstarPortfolioImportService.svc')
-      console.log(`MORNING_STAR_AWS:${xml}`)
-    if (returnXmlOnly) {
-      return callback(undefined, xml, undefined, undefined, undefined);
-    }
-
     const startTime = Date.now();
     return this.httpClient.request(
       location,
