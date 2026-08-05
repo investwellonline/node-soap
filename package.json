@@ -1,6 +1,6 @@
 {
   "name": "node-soap-iwell",
-  "version": "1.10.0",
+  "version": "1.2.0",
   "description": "A minimal node SOAP client",
   "engines": {
     "node": ">=20.19.0"
