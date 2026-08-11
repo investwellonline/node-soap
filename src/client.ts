@@ -427,7 +427,7 @@ export class Client extends EventEmitter {
     } else {
       assert.ok(!style || style === 'document', 'invalid message definition for rpc style binding');
       // pass `input.$lookupType` if `input.$type` could not be found
-      message = this.wsdl.objectToDocumentXML(input.$name, args, input.targetNSAlias, input.targetNamespace, input.$type || input.$lookupType);
+      message = this.wsdl.objectToDocumentXML(input.$name, args, input.targetNSAlias, input.targetNamespace, input.$type || input.$lookupType, options);
     }
 
     let decodedHeaders;
@@ -459,9 +459,7 @@ export class Client extends EventEmitter {
         ? "<" + envelopeKey + ":Header xmlns:wsa='http://www.w3.org/2005/08/addressing'>" +
           (decodedHeaders ? decodedHeaders : '') +
           (this.security && !this.security.postProcess ? this.security.toXML() : '') +
-          '</' +
-          envelopeKey +
-          ':Header>'
+          '</' + envelopeKey + ':Header>'
         : '') +
       '<' +
       envelopeKey +
