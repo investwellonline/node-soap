@@ -316,6 +316,8 @@ export class Client extends EventEmitter {
     };
     let headerXMLKeys='';
     let xmlnsSoap = 'xmlns:' + envelopeKey + '="' + envelopeSoapUrl + '"';
+    const { returnXmlOnly } = args;
+    if(returnXmlOnly) delete args.returnXmlOnly;
 
     const finish = (obj, body, response) => {
       let result;
@@ -578,6 +580,10 @@ export class Client extends EventEmitter {
         }
       }, onError);
       return;
+    }
+
+    if (returnXmlOnly) {
+      return callback(undefined, xml, undefined, undefined, undefined);
     }
 
     const startTime = Date.now();

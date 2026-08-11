@@ -96,7 +96,7 @@ This module lets you connect to web services using SOAP. It also provides a serv
 
 - Very simple API
 - Handles both RPC and Document schema types
-- Supports multiRef SOAP messages (thanks to [@amit-iwell](https://github.com/amit-iwell))
+- Supports multiRef SOAP messages (thanks to @kaven276)
 - Support for both synchronous and asynchronous method handlers
 - WS-Security UsernameToken Profile 1.0
 - Supports [Express](http://expressjs.com/) based web server (body parser middleware can be used)
